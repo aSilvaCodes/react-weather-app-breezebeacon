@@ -23,12 +23,13 @@ const options = [
   { value: "newyork", label: "New York, NY" },
 ];
 
-const apiKey = "8733fce90b624d638e9205638252207";
+const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 export default function App() {
   const [locations, setLocations] = useState(options);
   const [selectedOption, setSelectedOption] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
+  const [forecastData, setForecastData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 

@@ -1,4 +1,8 @@
-export default function AirConditions() {
+export default function AirConditions({
+  weatherData: {
+    current: { humidity, cloud, wind_mph, feelslike_f },
+  },
+}) {
   return (
     <div className="air-conditions">
       <div className="label">
@@ -6,19 +10,19 @@ export default function AirConditions() {
       </div>
       <div className="entry-section">
         <p>Real Feel</p>
-        <p>37 °C</p>
+        <p>{feelslike_f} °F</p>
       </div>
       <div className="entry-section">
         <p>Wind</p>
-        <p>4.69 m/s</p>
+        <p>{wind_mph} mph</p>
       </div>
       <div className="entry-section">
         <p>Clouds</p>
-        <p>94%</p>
+        <p>{cloud}%</p>
       </div>
       <div className="entry-section">
         <p>Humidity</p>
-        <p>74%</p>
+        <p>{humidity}%</p>
       </div>
     </div>
   );
