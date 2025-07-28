@@ -76,7 +76,7 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 60rem;
+  height: 65rem;
   background-color: rgba(128, 128, 128, 0.5);
   border-radius: 0.8rem;
 }
@@ -104,21 +104,27 @@ body {
   justify-items: center;
 }
 
-.region {
-}
-
-.temp {
-}
-
-.conditions {
-}
-
 .air-conditions {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: auto, 1fr;
   justify-items: center;
   row-gap: 2rem;
+}
+
+.astro-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  justify-items: center;
+  row-gap: 2rem;
+}
+
+.weekly-box {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  gap: 4rem;
 }
 
 .todays-forecast {
@@ -129,25 +135,20 @@ body {
   justify-items: center;
 }
 
-.todays-forecast p {
-  grid-column: 2;
-}
-
 .forecast {
-  display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  margin-top: 1rem;
-  row-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
   background-color: rgba(128, 128, 128, 0.5);
   padding: 1rem 2rem;
   border-radius: 0.8rem;
   font-size: 1.4rem;
 }
 
-.weekly-box {
+.next-two-days {
+  margin-top: 3rem;
   display: flex;
   flex-direction: column;
-  margin-top: 5rem;
   gap: 3rem;
 }
 
@@ -162,4 +163,11 @@ body {
   flex-direction: column;
   gap: 0.8rem;
   font-size: 1.4rem;
+  text-align: center;
+}
+
+.icon-stat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }

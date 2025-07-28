@@ -1,4 +1,6 @@
-export default function TodaysForecast() {
+export default function TodaysForecast({
+  weatherData: { current, location, forecast },
+}) {
   return (
     <div className="todays-forecast">
       <div className="label">
@@ -7,8 +9,8 @@ export default function TodaysForecast() {
       </div>
       <div className="forecast">
         <p>21:00</p>
-        <p>Cloudy</p>
-        <p>30 °C</p>
+        <img src={current.condition.icon} alt="weather icon" />
+        <p>{forecast.forecastday[0].hour[21].temp_f} °F</p>
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ import NavBar from "./NavBar";
 import WeeklyForecast from "./WeeklyForecast";
 import Loader from "./Loader";
 import ErrorMessage from "./ErrorMessage";
+import AstroData from "./AstroData";
 
 const options = [
   { value: "atlanta", label: "Atlanta, GA" },
@@ -29,9 +30,22 @@ export default function App() {
   const [locations, setLocations] = useState(options);
   const [selectedOption, setSelectedOption] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
-  const [forecastData, setForecastData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  function getDayOfWeek(dateString) {
+    const date = new Date(dateString);
+    const days = [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ];
+    return days[date.getDay()];
+  }
 
   function handleChange(selectedOption) {
     setSelectedOption(selectedOption);
@@ -43,7 +57,7 @@ export default function App() {
         setIsLoading(true);
         //setError("");
         const res = await fetch(
-          `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Atlanta&units=metric`
+          `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=Chicago&days=3&aqi=no&alerts=no`
         );
         if (!res.ok) {
           throw new Error("failed to fetch weather data");
@@ -60,14 +74,6 @@ export default function App() {
     fetchWeatherData();
   }, []);
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
   return (
     <>
       <NavBar>
@@ -83,21 +89,27 @@ export default function App() {
       </NavBar>
 
       <Main>
-        <CurrentBox>
-          {isLoading && <Loader />}
-          {!isLoading && !error && (
-            <>
-              <CurrentWeather weatherData={weatherData} />
+        {isLoading && <Loader />}
+        {!isLoading && !error && (
+          <>
+            <CurrentBox>
+              <CurrentWeather
+                weatherData={weatherData}
+                getDayOfWeek={getDayOfWeek}
+              />
               <AirConditions weatherData={weatherData} />
-              <TodaysForecast />
-            </>
-          )}
-          {error && <ErrorMessage error={error} />}
-        </CurrentBox>
-
-        <WeeklyBox>
-          <WeeklyForecast />
-        </WeeklyBox>
+              <AstroData weatherData={weatherData} />
+            </CurrentBox>
+            <WeeklyBox>
+              <TodaysForecast weatherData={weatherData} />
+              <WeeklyForecast
+                weatherData={weatherData}
+                getDayOfWeek={getDayOfWeek}
+              />
+            </WeeklyBox>
+          </>
+        )}
+        {error && <ErrorMessage error={error} />}
       </Main>
     </>
   );
