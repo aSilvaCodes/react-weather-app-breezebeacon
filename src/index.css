@@ -74,11 +74,13 @@ body {
 .main {
   margin-top: 2.4rem;
   width: 100%;
+  max-width: 120rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   height: 65rem;
   background-color: rgba(128, 128, 128, 0.5);
   border-radius: 0.8rem;
+  justify-self: center;
 }
 
 .current-box {
