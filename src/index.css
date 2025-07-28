@@ -166,6 +166,11 @@ body {
   text-align: center;
 }
 
+.bold {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
 .icon-stat {
   display: flex;
   align-items: center;

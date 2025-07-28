@@ -3,16 +3,15 @@ export default function ForecastEntry({ dayOfWeek, forecast }) {
     <div className="forecast-entry">
       <div className="entry-container">
         <div className="entry-section">
-          <p>{dayOfWeek}</p>
+          <p className="bold">{dayOfWeek}</p>
           <p>{forecast.day.condition.text}</p>
         </div>
         <div className="entry-section">
           <div className="icon-stat">
             <svg
-              width="20"
-              height="20"
+              width="24"
+              height="24"
               fill="#dee2e6"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-143b2d6"
               focusable="false"
               aria-hidden="true"
               viewBox="0 0 24 24"
@@ -26,10 +25,9 @@ export default function ForecastEntry({ dayOfWeek, forecast }) {
           </div>
           <div className="icon-stat">
             <svg
-              width="20"
-              height="20"
+              width="24"
+              height="24"
               fill="#dee2e6"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-143b2d6"
               focusable="false"
               aria-hidden="true"
               viewBox="0 0 24 24"
@@ -43,10 +41,9 @@ export default function ForecastEntry({ dayOfWeek, forecast }) {
         <div className="entry-section">
           <div className="icon-stat">
             <svg
-              width="20"
-              height="20"
+              width="24"
+              height="24"
               fill="#dee2e6"
-              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-143b2d6"
               focusable="false"
               aria-hidden="true"
               viewBox="0 0 24 24"
@@ -58,8 +55,8 @@ export default function ForecastEntry({ dayOfWeek, forecast }) {
           </div>
           <div className="icon-stat">
             <svg
-              width="20"
-              height="20"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               fill="dee2e6"
               xmlns="http://www.w3.org/2000/svg"
@@ -72,16 +69,7 @@ export default function ForecastEntry({ dayOfWeek, forecast }) {
                 d="M12 10.5a1.5 1.5 0 0 1-1.5-1.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5a1.5 1.5 0 0 1-1.5 1.5z"
                 fill="#dee2e6"
               />
-              <text
-                x="12"
-                y="17"
-                font-size="8"
-                fill="#dee2e6"
-                text-anchor="middle"
-                dy=".3em"
-              >
-                %
-              </text>
+              <text x="12" y="17" fill="#dee2e6" dy=".3em"></text>
             </svg>
             <p>{forecast.day.avghumidity}%</p>
           </div>

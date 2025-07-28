@@ -9,19 +9,19 @@ export default function AirConditions({
         <h2>Air Conditions</h2>
       </div>
       <div className="entry-section">
-        <p>Real Feel</p>
+        <p className="bold">Real Feel</p>
         <p>{feelslike_f} °F</p>
       </div>
       <div className="entry-section">
-        <p>Wind</p>
+        <p className="bold">Wind</p>
         <p>{wind_mph} mph</p>
       </div>
       <div className="entry-section">
-        <p>Clouds</p>
+        <p className="bold">Clouds</p>
         <p>{cloud}%</p>
       </div>
       <div className="entry-section">
-        <p>Humidity</p>
+        <p className="bold">Humidity</p>
         <p>{humidity}%</p>
       </div>
     </div>
